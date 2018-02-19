@@ -3,42 +3,47 @@ digraph G {
  rankdir=LR
  splines=line
  nodesep=.05;
-
+ //
  // node [label=""];
-
+ //
  subgraph cluster_0 {
- 	color=red;
-         node [color=blue4, shape=circle];
- 	x1 x2 x3;
- 	label = "layer 0";
+        color=red;
+        node [color=blue4, shape=circle];
+        ordering=out;
+        x1 x2 x3;
+        label = "layer 0";
  }
 
  subgraph cluster_1 {
- 	color=red;
- 	node [color=red2, shape=circle];
- 	h11 h12 h13 h14 h15;
- 	label = "layer 1";
+        color=red;
+        node [color=red2, shape=circle];
+        ordering=out;
+        h11 h12 h13 h14 h15;
+        label = "layer 1";
  }
 
  subgraph cluster_2 {
- 	color=red;
- 	node [color=red2, shape=circle];
- 	h21 h22 h23 h24 h25;
- 	label = "layer 2";
+        color=red;
+        node [color=red2, shape=circle];
+        ordering=out;
+        h21 h22 h23 h24 h25;
+        label = "layer 2";
  }
 
  subgraph cluster_3 {
- 	color=red;
- 	node [color=red2, shape=circle];
- 	h31 h32 h33 h34 h35 h36;
- 	label = "layer 3";
+        color=red;
+        node [color=red2, shape=circle];
+        ordering=out;
+        h31 h32 h33 h34 h35 h36;
+        label = "layer 3";
  }
 
  subgraph cluster_4 {
- 	color=red;
- 	node [color=seagreen2, shape=circle];
- 	y1 y2 y3 y4;
- 	label="layer 4";
+        color=red;
+        node [color=seagreen2, shape=circle];
+        ordering=out;
+        y1 y2 y3 y4;
+        label="layer 4";
  }
  //
 x1 -> h11;
