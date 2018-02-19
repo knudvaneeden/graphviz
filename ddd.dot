@@ -1,75 +1,156 @@
-
 digraph G {
-    size = "7,7";
-    rankdir = LR;
-    splines=false;
-    edge[style=invis];
-    ranksep= 1.4;
-    {
-    node [shape=circle, color=yellow, style=filled, fillcolor=yellow];
-    x0 [label=<x<sub>0</sub>>];
-    a02 [label=<a<sub>0</sub><sup>(2)</sup>>];
-    a03 [label=<a<sub>0</sub><sup>(3)</sup>>];
-    }
-    {
-    node [shape=circle, color=chartreuse, style=filled, fillcolor=chartreuse];
-    x1 [label=<x<sub>1</sub>>];
-    x2 [label=<x<sub>2</sub>>];
-    x3 [label=<x<sub>3</sub>>];
-}
-{
-    node [shape=circle, color=dodgerblue, style=filled, fillcolor=dodgerblue];
-    a12 [label=<a<sub>1</sub><sup>(2)</sup>>];
-    a22 [label=<a<sub>2</sub><sup>(2)</sup>>];
-    a32 [label=<a<sub>3</sub><sup>(2)</sup>>];
-    a42 [label=<a<sub>4</sub><sup>(2)</sup>>];
-    a52 [label=<a<sub>5</sub><sup>(2)</sup>>];
-    a13 [label=<a<sub>1</sub><sup>(3)</sup>>];
-    a23 [label=<a<sub>2</sub><sup>(3)</sup>>];
-    a33 [label=<a<sub>3</sub><sup>(3)</sup>>];
-    a43 [label=<a<sub>4</sub><sup>(3)</sup>>];
-    a53 [label=<a<sub>5</sub><sup>(3)</sup>>];
-}
-{
-    node [shape=circle, color=coral1, style=filled, fillcolor=coral1];
-    O1 [label=<a<sub>1</sub><sup>(4)</sup>>];
-    O2 [label=<a<sub>2</sub><sup>(4)</sup>>];
-    O3 [label=<a<sub>3</sub><sup>(4)</sup>>];
-    O4 [label=<a<sub>4</sub><sup>(4)</sup>>];
-}
-    {
-        rank=same;
-        x0->x1->x2->x3;
-    }
-    {
-        rank=same;
-        a02->a12->a22->a32->a42->a52;
-    }
-    {
-        rank=same;
-        a03->a13->a23->a33->a43->a53;
-    }
-    {
-        rank=same;
-        O1->O2->O3->O4;
-    }
-    a02->a03;  // prevent tilting
-    l0 [shape=plaintext, label="layer 1 (input layer)"];
-    l0->x0;
-    {rank=same; l0;x0};
-    l1 [shape=plaintext, label="layer 2 (hidden layer)"];
-    l1->a02;
-    {rank=same; l1;a02};
-    l2 [shape=plaintext, label="layer 3 (hidden layer)"];
-    l2->a03;
-    {rank=same; l2;a03};
-    l3 [shape=plaintext, label="layer 4 (output layer)"];
-    l3->O1;
-    {rank=same; l3;O1};
-    edge[style=solid, tailport=e, headport=w];
-    {x0; x1; x2; x3} -> {a12;a22;a32;a42;a52};
-    {a02;a12;a22;a32;a42;a52} -> {a13;a23;a33;a43;a53};
-    {a03;a13;a23;a33;a43;a53} -> {O1,O2,O3,O4};
-}
+ size = "7,7";
+ rankdir=LR
+ splines=line
+ nodesep=.05;
 
+ node [label=""];
 
+ subgraph cluster_0 {
+ 	color=red;
+         node [color=blue4, shape=circle];
+ 	x1 x2 x3;
+ 	label = "layer 0";
+ }
+
+ subgraph cluster_1 {
+ 	color=red;
+ 	node [color=red2, shape=circle];
+ 	h11 h12 h13 h14 h15;
+ 	label = "layer 1";
+ }
+
+ subgraph cluster_2 {
+ 	color=red;
+ 	node [color=red2, shape=circle];
+ 	h21 h22 h23 h24 h25;
+ 	label = "layer 2";
+ }
+
+ subgraph cluster_3 {
+ 	color=red;
+ 	node [color=red2, shape=circle];
+ 	h31 h32 h33 h34 h35 h36;
+ 	label = "layer 3";
+ }
+
+ subgraph cluster_4 {
+ 	color=red;
+ 	node [color=seagreen2, shape=circle];
+ 	y1 y2 y3 y4;
+ 	label="layer 4";
+ }
+ //
+x1 -> h11;
+x1 -> h12;
+x1 -> h13;
+x1 -> h14;
+x1 -> h15;
+//
+x2 -> h11;
+x2 -> h12;
+x2 -> h13;
+x2 -> h14;
+x2 -> h15;
+//
+x3 -> h11;
+x3 -> h12;
+x3 -> h13;
+x3 -> h14;
+x3 -> h15;
+//
+h11 -> h21;
+h11 -> h22;
+h11 -> h23;
+h11 -> h24;
+h11 -> h25;
+//
+h12 -> h21;
+h12 -> h22;
+h12 -> h23;
+h12 -> h24;
+h12 -> h25;
+//
+h13 -> h21;
+h13 -> h22;
+h13 -> h23;
+h13 -> h24;
+h13 -> h25;
+//
+h14 -> h21;
+h14 -> h22;
+h14 -> h23;
+h14 -> h24;
+h14 -> h25;
+//
+h15 -> h21;
+h15 -> h22;
+h15 -> h23;
+h15 -> h24;
+h15 -> h25;
+//
+h21 -> h31;
+h21 -> h32;
+h21 -> h33;
+h21 -> h34;
+h21 -> h35;
+h21 -> h36;
+//
+h22 -> h31;
+h22 -> h32;
+h22 -> h33;
+h22 -> h34;
+h22 -> h35;
+h22 -> h36;
+//
+h23 -> h31;
+h23 -> h32;
+h23 -> h33;
+h23 -> h34;
+h23 -> h35;
+h23 -> h36;
+//
+h24 -> h31;
+h24 -> h32;
+h24 -> h33;
+h24 -> h34;
+h24 -> h35;
+h24 -> h36;
+//
+h25 -> h31;
+h25 -> h32;
+h25 -> h33;
+h25 -> h34;
+h25 -> h35;
+h25 -> h36;
+//
+h31 -> y1;
+h31 -> y2;
+h31 -> y3;
+h31 -> y4;
+//
+h32 -> y1;
+h32 -> y2;
+h32 -> y3;
+h32 -> y4;
+//
+h33 -> y1;
+h33 -> y2;
+h33 -> y3;
+h33 -> y4;
+//
+h34 -> y1;
+h34 -> y2;
+h34 -> y3;
+h34 -> y4;
+//
+h35 -> y1;
+h35 -> y2;
+h35 -> y3;
+h35 -> y4;
+//
+h36 -> y1;
+h36 -> y2;
+h36 -> y3;
+h36 -> y4;
+}
