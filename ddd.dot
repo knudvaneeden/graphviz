@@ -6,39 +6,41 @@ digraph G {
  //
  // node [label=""];
  //
+ graph [ordering="out"];
+ //
  subgraph cluster_0 {
         color=red;
         node [color=blue4, shape=circle];
-        x1 -> x2 -> x3;
-        label = "layer 0";
+        x1 x2 x3;
+        label = "layer 0 (input)";
  }
 
  subgraph cluster_1 {
         color=red;
         node [color=red2, shape=circle];
-        h11 -> h12 -> h13 -> h14 -> h15;
-        label = "layer 1";
+        h11 h12 h13 h14 h15;
+        label = "layer 1 (hidden layer - sigmoid)";
  }
 
  subgraph cluster_2 {
         color=red;
         node [color=red2, shape=circle];
-        h21 -> h22 -> h23 -> h24 -> h25;
-        label = "layer 2";
+        h21 h22 h23 h24 h25;
+        label = "layer 2 (hidden layer - tanh)";
  }
 
  subgraph cluster_3 {
         color=red;
         node [color=red2, shape=circle];
-        h31 -> h32 -> h33 -> h34 -> h35 -> h36;
-        label = "layer 3";
+        h31 h32 h33 h34 h35 h36;
+        label = "layer 3 (hidden layer - relu)";
  }
 
  subgraph cluster_4 {
         color=red;
         node [color=seagreen2, shape=circle];
-        y1 -> y2 -> y3 -> y4;
-        label="layer 4";
+        y1 y2 y3 y4;
+        label="layer 4 (output (one-hot-encoding)";
  }
  //
 x1 -> h11;
