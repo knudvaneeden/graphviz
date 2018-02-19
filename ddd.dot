@@ -1,5 +1,6 @@
-
 digraph G {
+ //
+ // does not work to get 2 horizontal lines
  //
  size="7, 7!";
  rank=same
@@ -15,5 +16,3 @@ digraph G {
  14;
  15;
 }
-
-
