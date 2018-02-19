@@ -4,7 +4,7 @@ digraph G {
  splines=line
  nodesep=.05;
 
- node [label=""];
+ // node [label=""];
 
  subgraph cluster_0 {
  	color=red;
